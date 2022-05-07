@@ -10,9 +10,15 @@
 <body>
     <main class="main__container">
         <div class="screen__container">
+            <div class="screen__mode"></div>
+            <p class="previous"></p>
             <p class="screen"></p>
         </div>
         <div class="buttons">
+            <button  class="btn"></button>
+            <button  class="btn"></button>
+            <button data-clear="C" class="btn btn__operator">C</button>
+            <button data-operator="÷" class="btn btn__operator">÷</button>
             <button data-number="7" class="btn ">7</button>
             <button data-number="9" class="btn ">9</button>
             <button data-number="4" class="btn ">4</button>
@@ -26,8 +32,8 @@
             <button data-number="3" class="btn ">3</button>
             <button data-operator="+" class="btn btn__operator">+</button>
             <button data-number="0" class="btn ">0</button>
-            <button class="btn ">.</button>
-            <button data-clear="AC" class="btn btn__operator btn__clear">AC</button>
+            <button data-number="." class="btn ">.</button>
+            <button data-clearAll="AC" class="btn btn__operator">AC</button>
             <button data-equals="=" class="btn btn__operator btn__operator--green">=</button>
         </div>
     </main>
