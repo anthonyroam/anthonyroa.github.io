@@ -2,15 +2,10 @@ const screen = document.querySelector(".screen");
 const previous = document.querySelector(".previous");
 const buttons = document.querySelector(".buttons");
 const screenMode = document.querySelector(".screen__mode");
-const btn = document.querySelectorAll(".btn");
-const screenContainer = document.querySelector(".main__container")
 
 screenMode.addEventListener("click", ()=> {
-    buttons.classList.toggle("buttons--lm");
-    btn.forEach(button => {
-        button.classList.toggle("btn--lm");
-    });
-    screenContainer.classList.toggle("screen__container--lm");
+    document.body.classList.toggle("active");
+
 })
 
 buttons.addEventListener("click", (e)=> {
@@ -46,7 +41,15 @@ const calculator = {
 
     writeOperator(operator) {
         
-        if (screen.textContent === "" && previous.textContent === "") return; 
+        // if (screen.textContent === "" && previous.textContent === "") return; 
+        if (screen.textContent === "") {
+            if (operator === "-") {
+                screen.textContent = operator;
+                return this.number = operator;
+            }; 
+        }
+
+        if (screen.textContent === "-") return;
         
         if (this.operator !== undefined) {
             this.calculate();
@@ -91,12 +94,18 @@ const calculator = {
     clear() {
         let deleteLast = screen.textContent.slice(0,-1);
         screen.textContent = deleteLast;
+ 
+        if (this.operator !== undefined) return this.number2 = screen.textContent;
+        else {
+            console.log("pase por aqui")
+            return this.number1 = screen.textContent
+        };
     },
 
     calculate() {
-        // console.log( `number1: ${this.number1}`)
-        // console.log( `number2: ${this.number2}`)
-        // console.log( `operator: ${this.operator}`)
+        console.log( `number1: ${this.number1}`)
+        console.log( `number2: ${this.number2}`)
+        console.log( `operator: ${this.operator}`)
 
         if (this.number1 === "" || this.number2 === "") return;
 
@@ -119,7 +128,10 @@ const calculator = {
             default:
                 break;
         }
-        // previous.textContent = `${this.number1}${this.operator}${this.number2}=`
+
+        this.result = this.result.toFixed(2);
+
+        if(this.result.indexOf(".00") !== -1) parseInt(this.result);
 
         previous.textContent = "";
         screen.textContent = this.result;
