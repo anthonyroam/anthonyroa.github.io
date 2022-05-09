@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-/* Maquetacion:
-    1. Posicionamiento
-    2. Modelo de caja
-    3. Tipografia
-    4. Estilos visuales
-    5. Otros */
-
 * {
     padding: 0;
     margin: 0;
@@ -19,7 +12,7 @@
     --background-keyboard: #35486c;
     --operator-button: #23b786;
     --number-button: #C7D6D1;
-    --btn-active: #35486cb1;
+    --dark-blue: #2A354B;
     --dot: 3px;
 }
 
@@ -34,7 +27,6 @@ body.active {
     --background-keyboard: #FBFEFD;
     --operator-button: #23b786;
     --number-button: #2A354B;
-    --btn-active: #35486cb1;
     --dot: 55%;
 }
 
@@ -51,10 +43,12 @@ body.active {
     align-items: flex-end;
     justify-content: end;
     padding: 15px 20px;
-    height: 25%;
+    min-height: 25%;
+    max-height: fit-content;
     border-radius: 15px 15px 0 0;
     background-color: var(--background-screen);
     transition: all 0.5s ease;
+    overflow: hidden;
 }
 
 .screen {
@@ -69,7 +63,7 @@ body.active {
     font-size: 35px;
 }
 
-.screen__mode {
+.screen__switch {
     position: relative;
     display: flex;
     align-items: center;
@@ -134,9 +128,18 @@ body.active {
     border-radius: 50%;
 }
 
+.btn__operator--large {
+    width: 70%;
+    border-radius: 20px;
+}
+
 .btn__operator--green {
     background-color: var(--operator-button);
-    color: var(--background-screen);
+    color: var(--dark-blue);
+}
+
+.btn:last-child {
+    grid-column: 3 / 5;
 }
 
 @media (max-width: 480px) {
