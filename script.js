@@ -73,6 +73,10 @@ const calculator = {
         if (this.operator !== undefined) {
             previousScreen.textContent = `${this.getDisplayNumber(this.previousNumber)}${this.operator}`;
         } else previousScreen.textContent = "";
+
+        (this.currentNumber.toString().length > 11)
+        ? currentScreen.style.fontSize = "3rem"
+        : currentScreen.style.fontSize = "3.5rem";
     },
 
     clearAll() {
@@ -128,5 +132,11 @@ const calculator = {
         this.currentNumber = this.result;
         this.previousNumber = "";
         this.operator = undefined;
+    },
+
+    renderNumber() {
+        if (this.currentNumber.toString().length > 12 ) {
+            currentScreen.style.fontSize = "3.5rem";
+        }
     },
 };

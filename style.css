@@ -19,7 +19,7 @@
 body {
     width: 100%;
     height: 100vh;
-    background-color: #647595;
+    background-image: linear-gradient(to right top, #2a354b, #455c6c, #69848c, #96acad, #c7d6d1);    
 }
 
 body.active {
@@ -53,14 +53,14 @@ body.active {
 
 .screen {
     color: var(--operator-button);
-    font-size: 65px;
+    font-size: 3.5rem;
     height: 70px;
 }
 
 .previous {
     height: 35px;
     color: var(--operator-button);
-    font-size: 35px;
+    font-size: 2.2rem;
 }
 
 .screen__switch {
@@ -90,7 +90,7 @@ body.active {
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0px;
+    gap: 10px;
     place-items: center;
     width: 100%;
     height: 75%;
@@ -105,8 +105,8 @@ body.active {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 75px;
-    height: 75px;
+    width: 5rem;
+    height: 5rem;
     border: none;
     font-size: 35px;
     color: var(--number-button);
@@ -143,6 +143,10 @@ body.active {
 }
 
 @media (max-width: 480px) {
+    * {
+        font-size: 15px;
+    }
+    
     body {
         background-color: var(--background-keyboard);
     }
@@ -152,11 +156,11 @@ body.active {
         height: 100vh;
         margin: 0;
     }
-
-    .screen__container {
-        border-radius: 0 0 20px 20px;
-    }
     
+    .screen__container {
+        border-radius: 0;
+    }
+
     .screen {
         letter-spacing: 2.5px;
     }
@@ -164,6 +168,10 @@ body.active {
     .buttons {
         border-top: 1px solid #35486c;
         border-radius: 0px;
+    }
+
+    .btn {
+        font-size: 30px;
     }
 
     .btn__operator {
