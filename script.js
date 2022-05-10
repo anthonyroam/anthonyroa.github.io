@@ -133,10 +133,4 @@ const calculator = {
         this.previousNumber = "";
         this.operator = undefined;
     },
-
-    renderNumber() {
-        if (this.currentNumber.toString().length > 12 ) {
-            currentScreen.style.fontSize = "3.5rem";
-        }
-    },
 };
