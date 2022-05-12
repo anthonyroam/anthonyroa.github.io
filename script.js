@@ -3,11 +3,9 @@ const previousScreen = document.querySelector(".previous");
 const buttons = document.querySelector(".buttons");
 const screenMode = document.querySelector(".screen__switch");
 
-screenMode.addEventListener("click", ()=> {
-    document.body.classList.toggle("active");
-})
+screenMode.addEventListener("click", ()=> document.body.classList.toggle("active"));
 
-buttons.addEventListener("click", (e)=> {
+buttons.addEventListener("click", e => {
     const button = e.target;
     const buttonData = button.dataset;
     if (buttonData.number) {
@@ -54,7 +52,7 @@ const calculator = {
 
     getDisplayNumber(number) {
         let numberString = number.toString();
-        if (numberString.indexOf(".") === -1) return numberString.replace(/(\d)(?=(\d{3})+\b)/g,'$1,');
+        if (!numberString.includes(".")) return numberString.replace(/(\d)(?=(\d{3})+\b)/g,'$1,');
        
         const integerDigits = numberString.split(".")[0];
         const decimalDigits = numberString.split(".")[1];
@@ -117,7 +115,7 @@ const calculator = {
         };
        
         let resultString = this.result.toString();
-        if (resultString.indexOf(".") !== -1) {
+        if (resultString.includes(".")) {
             let decimalPoint = resultString.indexOf(".");
             let decimals = resultString.slice(decimalPoint);
             if (decimals.length > 10) {
