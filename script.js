@@ -56,13 +56,9 @@ const calculator = {
        
         const integerDigits = numberString.split(".")[0];
         const decimalDigits = numberString.split(".")[1];
-        let integerDisplay
+        let integerDisplay;
         integerDisplay = integerDigits.replace(/(\d)(?=(\d{3})+\b)/g,'$1,');
-        if (decimalDigits !== null) {
-            return `${integerDisplay}.${decimalDigits}`
-        } else {
-            return integerDisplay
-        }
+        return `${integerDisplay}.${decimalDigits}`;
     },
 
     updateScreen() {
